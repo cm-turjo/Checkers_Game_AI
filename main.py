@@ -1,25 +1,36 @@
 import pygame
-from checkers.constants import WIDTH, HEIGHT
+from checkers.constants import *
 from checkers.board import Board
-FPS = 60
+
+FPS =60
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Checkers")
+
+pygame.display.set_caption('Checkers')
 
 
 def main():
     run = True
-    clock = pygame.time.Clock()  # For setting Running Refresh Rate of the game
-    board= Board()
+    clock = pygame.time.Clock()
+    board = Board()
+    
     while run:
-        clock.tick(FPS)  # Game Refreshrate->60
-
-        for event in pygame.event.get():  # For checking any event is happening at current time
+        clock.tick(FPS)
+        
+        for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
+                
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pass
+        
         board.draw_squares(WIN)
         pygame.display.update()
+                
     pygame.quit()
+    
+    
+       
+
+
 
 main()
